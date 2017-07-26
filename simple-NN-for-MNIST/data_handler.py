@@ -39,7 +39,8 @@ class ImageLoader(Loader):
             picture.append([])
             for j in range(28):
                 picture[i].append(
-                    self.to_int(content[start + i * 28 + j]))
+                    float(self.to_int(content[start + i * 28 + j]))/255)
+					#重要！这里一定要将图片像素数值归一化
         return picture
     def get_one_sample(self, picture):
         '''
